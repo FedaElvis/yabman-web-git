@@ -5,13 +5,13 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "John Doe",
+    name: "Gameli Righteous",
     location: "London, UK",
     quote: "Yabman Travel changed my life. They handled my Tier 2 visa flawlessly and now I'm working as a Senior Nurse in London.",
     image: "/avatar1.png"
   },
   {
-    name: "Jane Smith",
+    name: "Akpalu Dorcas",
     location: "Toronto, Canada",
     quote: "The Express Entry process was daunting, but Yabman's experts guided me at every step. Highly recommended for Canadian migration.",
     image: "/avatar2.png"

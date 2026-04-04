@@ -1,42 +1,49 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, MapPin, DollarSign, Calendar } from "lucide-react";
+import { Briefcase, CreditCard, Laptop, Users, ShoppingCart, Truck, HardHat, Heart } from "lucide-react";
 
-const jobs = [
+const jobCategories = [
   {
-    title: "Registered Nurses (RN)",
-    location: "UK & USA",
-    salary: "$45,000 - $85,000",
-    type: "Full-time",
-    requirements: "Degree in Nursing, 2+ years experience, IELTS/OET",
-    icon: "🏥"
+    title: "Office & Administrative",
+    icon: <Laptop size={32} />,
+    roles: ["Accounts", "IT Support Staff", "Office Admin", "Customer Service"],
+    color: "#0d47a1"
   },
   {
-    title: "Construction Workers",
-    location: "Germany",
-    salary: "€3,000 - €5,500 monthly",
-    type: "Contract",
-    requirements: "Trade certification, 3+ years experience, basic German",
-    icon: "🏗️"
+    title: "Retail & Sales",
+    icon: <ShoppingCart size={32} />,
+    roles: ["Cashier", "Sales Executive", "Storekeeper"],
+    color: "#c62828"
   },
   {
-    title: "Hospitality & Tourism Staff",
-    location: "USA (J-1/H-2B)",
-    salary: "$15 - $25 hourly",
-    type: "Seasonal/Full-time",
-    requirements: "Service experience, friendly attitude, good English",
-    icon: "🏨"
+    title: "Logistics & Warehouse",
+    icon: <Truck size={32} />,
+    roles: ["Warehouse Staff", "Warehouse Supervisor", "Storekeeper"],
+    color: "#2e7d32"
   },
   {
-    title: "Tech & Software Engineers",
-    location: "Canada & Germany",
-    salary: "$70,000 - $120,000",
-    type: "Remote/Hybrid",
-    requirements: "CS Degree/Code Bootcamp, 3+ years experience",
-    icon: "💻"
+    title: "Industrial & Labor",
+    icon: <HardHat size={32} />,
+    roles: ["Factory Work", "Food Packaging", "Construction"],
+    color: "#ef6c00"
+  },
+  {
+    title: "Transport & Security",
+    icon: <ShieldCheck size={32} />,
+    roles: ["Driving", "Security Guard"],
+    color: "#4527a0"
+  },
+  {
+    title: "Healthcare & Support",
+    icon: <Heart size={32} />,
+    roles: ["Caregiver"],
+    color: "#d81b60"
   }
 ];
+
+// Helper to provide specific icons for categories - but I'll use simple checkmarks for roles
+import { ShieldCheck, Check } from "lucide-react";
 
 const Jobs = () => {
   return (
@@ -54,58 +61,56 @@ const Jobs = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
             style={{ maxWidth: '600px', margin: '0 auto' }}
           >
-            Explore featured opportunities across sectors. Our agency bridges the gap between international employers and skilled talent.
+            Choose from a wide variety of roles across different sectors in our partner countries.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2">
-          {jobs.map((job, index) => (
+        <div className="grid grid-cols-3">
+          {jobCategories.map((category, index) => (
             <motion.div
-              key={job.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              key={category.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               className="card glass"
-              style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', borderStyle: 'dashed' }}
+              style={{ padding: '2rem', height: '100%', borderTop: `4px solid ${category.color}` }}
             >
-              <div style={{ fontSize: '3rem', background: 'white', padding: '1.5rem', borderRadius: '16px', boxShadow: 'var(--shadow-sm)' }}>
-                {job.icon}
+              <div 
+                style={{ 
+                  width: '64px', 
+                  height: '64px', 
+                  borderRadius: '16px', 
+                  background: 'rgba(0,0,0,0.03)', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  color: category.color,
+                  marginBottom: '1.5rem'
+                }}
+              >
+                {category.icon}
               </div>
-              <div style={{ flexGrow: 1 }}>
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '0.4rem', color: 'var(--secondary)' }}>{job.title}</h3>
-                
-                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '0.8rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem' }}>
-                    <MapPin size={14} style={{ color: 'var(--primary)' }} /> {job.location}
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem' }}>
-                    <DollarSign size={14} style={{ color: 'var(--primary)' }} /> {job.salary}
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem' }}>
-                    <Calendar size={14} style={{ color: 'var(--primary)' }} /> {job.type}
-                  </div>
-                </div>
-                
-                <p style={{ fontSize: '0.85rem', marginBottom: '1rem', fontStyle: 'italic' }}>
-                  <strong>Requirements:</strong> {job.requirements}
-                </p>
-                
-                <button className="btn btn-outline" style={{ padding: '0.4rem 1.2rem', fontSize: '0.8rem' }}>
-                  Apply Now
-                </button>
-              </div>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '1.5rem', color: 'var(--secondary)' }}>{category.title}</h3>
+              
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                {category.roles.map((role) => (
+                  <li key={role} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.95rem' }}>
+                    <Check size={16} style={{ color: 'var(--primary)', flexShrink: 0 }} /> {role}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>
-        
-        <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-          <button className="btn btn-primary">
-            Explore All 50+ Roles
+
+        <div style={{ textAlign: 'center', marginTop: '4rem' }}>
+          <button className="btn btn-primary" style={{ padding: '1rem 3rem' }}>
+            Book Consultation for Jobs
           </button>
         </div>
       </div>

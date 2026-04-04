@@ -7,34 +7,66 @@ import { useState } from "react";
 const Contact = () => {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    country: "UK",
+    message: ""
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    setTimeout(() => {
-      setStatus("success");
-      setTimeout(() => setStatus("idle"), 3000);
-    }, 1500);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", country: "UK", message: "" });
+        setTimeout(() => setStatus("idle"), 3000);
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+    }
   };
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name.toLowerCase().replace(" ", "")]: value }));
+  };
+
+  // Helper for input change with specific name
+  const updateField = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+  
   const contactInfo = [
     {
       icon: <Phone size={24} />,
       label: "Phone Support",
-      value: "+1 (555) 123-4567",
+      value: "0244789834",
       color: "var(--primary)"
     },
     {
       icon: <Mail size={24} />,
       label: "Email Address",
-      value: "info@yabmantravel.com",
+      value: "yabmanagency@gmail.com",
       color: "var(--secondary)"
     },
-    {
-      icon: <MapPin size={24} />,
-      label: "Office Address",
-      value: "123 Travel Plaza, Downtown District, City 10101",
-      color: "var(--accent)"
-    }
+    // {
+    //   icon: <MapPin size={24} />,
+    //   label: "Office Address",
+    //   value: "123 Travel Plaza, Downtown District, City 10101",
+    //   color: "var(--accent)"
+    // }
   ];
 
   return (
@@ -90,6 +122,25 @@ const Contact = () => {
                   <div>
                     <h5 style={{ margin: 0, color: 'var(--muted)', fontSize: '0.9rem' }}>{info.label}</h5>
                     <p style={{ margin: 0, fontWeight: 700, color: 'var(--secondary)' }}>{info.value}</p>
+                    {/* <p style={{ margin: 0, fontWeight: 700 }}>
+  {info.label === "Phone Support" ? (
+    <a 
+      href={`tel:${info.value}`} 
+      style={{ color: 'var(--secondary)', textDecoration: 'none' }}
+    >
+      {info.value}
+    </a>
+  ) : info.label === "Email Address" ? (
+    <a 
+      href={`mailto:${info.value}`} 
+      style={{ color: 'var(--secondary)', textDecoration: 'none' }}
+    >
+      {info.value}
+    </a>
+  ) : (
+    <span style={{ color: 'var(--secondary)' }}>{info.value}</span>
+  )}
+</p> */}
                   </div>
                 </div>
               ))}
@@ -116,6 +167,9 @@ const Contact = () => {
                 <label style={{ fontWeight: 600, fontSize: '0.9rem' }}>Full Name</label>
                 <input 
                   type="text" 
+                  name="name"
+                  value={formData.name}
+                  onChange={(e) => updateField("name", e.target.value)}
                   placeholder="Enter your name"
                   required
                   style={{ padding: '1rem', borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--background)', outline: 'none' }}
@@ -125,6 +179,9 @@ const Contact = () => {
                 <label style={{ fontWeight: 600, fontSize: '0.9rem' }}>Email Address</label>
                 <input 
                   type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={(e) => updateField("email", e.target.value)}
                   placeholder="name@email.com"
                   required
                   style={{ padding: '1rem', borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--background)', outline: 'none' }}
@@ -132,16 +189,24 @@ const Contact = () => {
               </div>
               <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
                 <label style={{ fontWeight: 600, fontSize: '0.9rem' }}>Preferred Country</label>
-                <select style={{ padding: '1rem', borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--background)', outline: 'none' }}>
-                  <option>UK</option>
-                  <option>USA</option>
-                  <option>Canada</option>
-                  <option>Germany</option>
+                <select 
+                  name="country"
+                  value={formData.country}
+                  onChange={(e) => updateField("country", e.target.value)}
+                  style={{ padding: '1rem', borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--background)', outline: 'none' }}
+                >
+                  <option value="UK">UK</option>
+                  <option value="USA">USA</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Germany">Germany</option>
                 </select>
               </div>
               <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
                 <label style={{ fontWeight: 600, fontSize: '0.9rem' }}>Message</label>
                 <textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={(e) => updateField("message", e.target.value)}
                   rows={4} 
                   placeholder="Tell us about your goals..."
                   required
@@ -155,7 +220,7 @@ const Contact = () => {
                 className="btn btn-primary" 
                 style={{ marginTop: '1rem', padding: '1rem' }}
               >
-                {status === "loading" ? <Loader2 size={24} className="spin" /> : status === "success" ? "Message Sent!" : "Send Message"}
+                {status === "loading" ? <Loader2 size={24} className="spin" /> : status === "success" ? "Message Sent!" : status === "error" ? "Failed to Send" : "Send Message"}
                 {status === "idle" && <Send size={24} />}
               </button>
             </form>

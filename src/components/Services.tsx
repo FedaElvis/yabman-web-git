@@ -1,33 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CreditCard, Briefcase, GraduationCap, MapPin } from "lucide-react";
+import { Globe, ShieldCheck, MapPin } from "lucide-react";
 
-const services = [
+const majorDestinations = [
   {
-    country: "UK",
+    country: "United Kingdom",
     flag: "🇬🇧",
-    description: "Expert assistance for UK Health & Care worker visas, skilled worker visas, and student permits. Quick turnaround with high success rates.",
-    tags: ["Health & Care", "Skilled Worker", "Student"]
-  },
-  {
-    country: "USA",
-    flag: "🇺🇸",
-    description: "H-1B, L-1, and J-1 visa processing expert services. We help with documentation, interview preparation, and employer filing.",
-    tags: ["Work Permits", "Exchange Programs", "Business"]
+    description: "Health & Care, Skilled Worker, Student Visas.",
+    color: "#00247D"
   },
   {
     country: "Canada",
     flag: "🇨🇦",
-    description: "Express Entry, Provincial Nominee Programs (PNP), and student permit specialist. Your reliable path to Canadian residency.",
-    tags: ["Express Entry", "Work Permits", "Study"]
+    description: "Express Entry, PNP, Work & Study Permits.",
+    color: "#FF0000"
   },
   {
-    country: "Germany",
-    flag: "🇩🇪",
-    description: "Blue Card (EU) and job seeker visa processing for skilled professionals. We bridge your path to Europe's largest economy.",
-    tags: ["Blue Card", "Job Seeker", "Training"]
+    country: "Australia",
+    flag: "🇦🇺",
+    description: "Skilled Migration, Working Holiday, Student Permits.",
+    color: "#00008B"
+  },
+  {
+    country: "New Zealand",
+    flag: "🇳🇿",
+    description: "Employer-Led Work, Essential Skills, Residency.",
+    color: "#012169"
   }
+];
+
+const schengenCountries = [
+  "Germany", "Netherlands", "Switzerland", "Sweden", "Malta", "Croatia", "Poland", 
+  "Luxembourg", "Romania", "Finland", "Turkey", "Italy", "Slovakia", 
+  "Czech Republic", "Lithuania", "Portugal", "Austria", "Belgium"
 ];
 
 const Services = () => {
@@ -41,51 +47,74 @@ const Services = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Visa <span className="gradient-text">Services</span>
+            Our Global <span className="gradient-text">Destinations</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
             style={{ maxWidth: '600px', margin: '0 auto' }}
           >
-            We provide expert guidance and full support for visa applications to the most sought-after global destinations.
+            We specialize in visa processing and job placements for the world's most sought-after countries.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-4">
-          {services.map((service, index) => (
+        {/* Major Destinations */}
+        <h3 style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+          <Globe size={28} style={{ color: 'var(--primary)' }} /> Featured Countries
+        </h3>
+        <div className="grid grid-cols-4" style={{ marginBottom: '5rem' }}>
+          {majorDestinations.map((dest, index) => (
             <motion.div
-              key={service.country}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              key={dest.country}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               className="card"
-              style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
+              style={{ borderTop: `4px solid ${dest.color}` }}
             >
-              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>{service.flag}</div>
-              <h3 style={{ marginBottom: '1rem' }}>{service.country} Visa</h3>
-              <p style={{ fontSize: '0.95rem', flexGrow: 1, marginBottom: '1.5rem' }}>{service.description}</p>
-              
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                {service.tags.map(tag => (
-                  <span 
-                    key={tag}
-                    style={{
-                      background: 'rgba(13, 71, 161, 0.05)',
-                      padding: '0.3rem 0.8rem',
-                      borderRadius: '50px',
-                      fontSize: '0.75rem',
-                      fontWeight: 700,
-                      color: 'var(--secondary)'
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{dest.flag}</div>
+              <h4 style={{ marginBottom: '0.5rem', color: 'var(--secondary)' }}>{dest.country}</h4>
+              <p style={{ fontSize: '0.9rem', marginBottom: 0 }}>{dest.description}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Schengen Countries */}
+        <h3 style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+          <ShieldCheck size={28} style={{ color: 'var(--secondary)' }} /> Schengen Zone Services
+        </h3>
+        <div 
+          className="glass" 
+          style={{ 
+            padding: '3rem', 
+            borderRadius: '24px', 
+            background: 'white', 
+            boxShadow: 'var(--shadow)',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+            gap: '1.5rem'
+          }}
+        >
+          {schengenCountries.map((country, index) => (
+            <motion.div
+              key={country}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              viewport={{ once: true }}
+              style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.8rem',
+                fontSize: '0.95rem',
+                fontWeight: 600,
+                color: 'var(--muted)'
+              }}
+            >
+              <MapPin size={16} style={{ color: 'var(--primary)' }} /> {country}
             </motion.div>
           ))}
         </div>

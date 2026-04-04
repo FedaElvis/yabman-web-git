@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Offers from "@/components/Offers";
 import Services from "@/components/Services";
 import Jobs from "@/components/Jobs";
 import Benefits from "@/components/Benefits";
@@ -13,6 +14,7 @@ export default function Home() {
     <main style={{ minHeight: "100vh" }}>
       <Navbar />
       <Hero />
+      <Offers />
       <Services />
       <Jobs />
       <Benefits />
