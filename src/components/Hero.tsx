@@ -12,7 +12,7 @@ const Hero = () => {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        background: 'linear-gradient(135deg, rgba(13, 71, 161, 0.05) 0%, rgba(27, 94, 32, 0.05) 100%)',
+        background: 'linear-gradient(135deg, rgba(202, 138, 4, 0.08) 0%, rgba(250, 204, 21, 0.12) 100%)',
         padding: '100px 0 60px',
         overflow: 'hidden'
       }}
@@ -34,14 +34,14 @@ const Hero = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.5rem',
-                background: 'rgba(27, 94, 32, 0.1)',
+                background: 'rgba(250, 204, 21, 0.18)',
                 color: 'var(--primary)',
                 padding: '0.5rem 1rem',
                 borderRadius: '50px',
                 fontSize: '0.9rem',
                 fontWeight: 700,
                 marginBottom: '1.5rem',
-                border: '1px solid rgba(27, 94, 32, 0.2)'
+                border: '1px solid rgba(202, 138, 4, 0.3)'
               }}
             >
               <Globe size={16} /> Trusted Visa Experts

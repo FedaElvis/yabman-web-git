@@ -1,14 +1,14 @@
 :root {
-  --primary: #1b5e20; /* Deep Forest Green for growth and nature */
-  --primary-light: #4c8c4a;
-  --secondary: #0d47a1; /* Deep Navy Blue for trust and stability */
-  --secondary-light: #5472d3;
-  --accent: #ffd600; /* Bright Gold for success and opportunity */
+  --primary: #facc15; /* Gold yellow */
+  --primary-light: #fde047;
+  --secondary: #ca8a04; /* Rich amber */
+  --secondary-light: #eab308;
+  --accent: #fef08a; /* Soft light yellow */
   --background: #ffffff;
-  --background-alt: #f5f7fa;
-  --foreground: #1a1a1a;
-  --muted: #616161;
-  --border: #e0e0e0;
+  --background-alt: #fffbea;
+  --foreground: #1f1f1f;
+  --muted: #5f5f5f;
+  --border: #f1e3a6;
   --radius: 16px;
   --radius-sm: 8px;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -130,7 +130,7 @@ button, .btn {
 .btn-outline:hover {
   border-color: var(--primary);
   color: var(--primary);
-  background: rgba(27, 94, 32, 0.05);
+  background: rgba(250, 204, 21, 0.12);
 }
 
 .container {

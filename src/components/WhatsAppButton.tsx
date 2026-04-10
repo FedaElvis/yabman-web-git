@@ -4,9 +4,13 @@ import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 const WhatsAppButton = () => {
-  const phoneNumber = "0555983716";
+  const phoneNumber = "0244789834";
+  const normalizedPhone = phoneNumber.replace(/\D/g, "");
+  const internationalPhone = normalizedPhone.startsWith("0")
+    ? `233${normalizedPhone.slice(1)}`
+    : normalizedPhone;
   const message = "Hello YABMAN, I'm interested in your visa services. Can you help me?";
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${internationalPhone}&text=${encodeURIComponent(message)}`;
 
   
 
@@ -26,13 +30,13 @@ const WhatsAppButton = () => {
         right: '30px',
         width: '64px',
         height: '64px',
-        backgroundColor: '#25D366',
+        backgroundColor: 'var(--secondary)',
         borderRadius: '50%',
         color: 'white',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        boxShadow: '0 10px 25px rgba(37, 211, 102, 0.3)',
+        boxShadow: '0 10px 25px rgba(202, 138, 4, 0.35)',
         zIndex: 5000,
         textDecoration: 'none'
       }}

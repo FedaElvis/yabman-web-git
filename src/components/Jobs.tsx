@@ -8,37 +8,37 @@ const jobCategories = [
     title: "Office & Administrative",
     icon: <Laptop size={32} />,
     roles: ["Accounts", "IT Support Staff", "Office Admin", "Customer Service"],
-    color: "#0d47a1"
+    color: "#f59e0b"
   },
   {
     title: "Retail & Sales",
     icon: <ShoppingCart size={32} />,
     roles: ["Cashier", "Sales Executive", "Storekeeper"],
-    color: "#c62828"
+    color: "#facc15"
   },
   {
     title: "Logistics & Warehouse",
     icon: <Truck size={32} />,
     roles: ["Warehouse Staff", "Warehouse Supervisor", "Storekeeper"],
-    color: "#2e7d32"
+    color: "#fbbf24"
   },
   {
     title: "Industrial & Labor",
     icon: <HardHat size={32} />,
     roles: ["Factory Work", "Food Packaging", "Construction"],
-    color: "#ef6c00"
+    color: "#f59e0b"
   },
   {
     title: "Transport & Security",
     icon: <ShieldCheck size={32} />,
     roles: ["Driving", "Security Guard"],
-    color: "#4527a0"
+    color: "#ca8a04"
   },
   {
     title: "Healthcare & Support",
     icon: <Heart size={32} />,
     roles: ["Caregiver"],
-    color: "#d81b60"
+    color: "#eab308"
   }
 ];
 
