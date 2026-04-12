@@ -47,7 +47,7 @@ const Hero = () => {
                 border: '1px solid rgba(30, 58, 138, 0.15)'
               }}
             >
-              <Globe size={16} /> Trusted Visa Experts
+              <Globe size={16} /> Expert Assist In Visa Processing
             </span>
             
             <h1 style={{ marginBottom: '1.5rem' }}>

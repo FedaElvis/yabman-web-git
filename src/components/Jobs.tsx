@@ -1,42 +1,42 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, CreditCard, Laptop, Users, ShoppingCart, Truck, HardHat, Heart } from "lucide-react";
+import { Laptop, ShoppingCart, Truck, HardHat, Heart } from "lucide-react";
 
 const jobCategories = [
   {
     title: "Office & Administrative",
-    icon: <Laptop size={32} />,
+    icon: <Laptop size={22} />,
     roles: ["Accounts", "IT Support Staff", "Office Admin", "Customer Service"],
     color: "#1e3a8a"
   },
   {
     title: "Retail & Sales",
-    icon: <ShoppingCart size={32} />,
+    icon: <ShoppingCart size={22} />,
     roles: ["Cashier", "Sales Executive", "Storekeeper"],
     color: "#ea580c"
   },
   {
     title: "Logistics & Warehouse",
-    icon: <Truck size={32} />,
+    icon: <Truck size={22} />,
     roles: ["Warehouse Staff", "Warehouse Supervisor", "Storekeeper"],
     color: "#2563eb"
   },
   {
     title: "Industrial & Labor",
-    icon: <HardHat size={32} />,
+    icon: <HardHat size={22} />,
     roles: ["Factory Work", "Food Packaging", "Construction"],
     color: "#f59e0b"
   },
   {
     title: "Transport & Security",
-    icon: <ShieldCheck size={32} />,
+    icon: <ShieldCheck size={22} />,
     roles: ["Driving", "Security Guard"],
     color: "#1d4ed8"
   },
   {
     title: "Healthcare & Support",
-    icon: <Heart size={32} />,
+    icon: <Heart size={22} />,
     roles: ["Caregiver"],
     color: "#fb923c"
   }
@@ -47,9 +47,9 @@ import { ShieldCheck, Check } from "lucide-react";
 
 const Jobs = () => {
   return (
-    <section id="jobs" className="section" style={{ background: 'var(--background)' }}>
+    <section id="jobs" className="section" style={{ background: 'var(--background)', padding: '5rem 0' }}>
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '2.25rem' }}>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ const Jobs = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3" style={{ gap: '1rem' }}>
           {jobCategories.map((category, index) => (
             <motion.div
               key={category.title}
@@ -78,29 +78,29 @@ const Jobs = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               className="card glass"
-              style={{ padding: '2rem', height: '100%', borderTop: `4px solid ${category.color}` }}
+              style={{ padding: '1.15rem 1.25rem', height: '100%', borderTop: `3px solid ${category.color}` }}
             >
               <div 
                 style={{ 
-                  width: '64px', 
-                  height: '64px', 
-                  borderRadius: '16px', 
+                  width: '44px', 
+                  height: '44px', 
+                  borderRadius: '12px', 
                   background: 'rgba(0,0,0,0.03)', 
                   display: 'flex', 
                   alignItems: 'center', 
                   justifyContent: 'center',
                   color: category.color,
-                  marginBottom: '1.5rem'
+                  marginBottom: '0.85rem'
                 }}
               >
                 {category.icon}
               </div>
-              <h3 style={{ fontSize: '1.2rem', marginBottom: '1.5rem', color: 'var(--secondary)' }}>{category.title}</h3>
+              <h3 style={{ fontSize: '1.05rem', marginBottom: '0.65rem', color: 'var(--secondary)', lineHeight: 1.25 }}>{category.title}</h3>
               
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                 {category.roles.map((role) => (
-                  <li key={role} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.95rem' }}>
-                    <Check size={16} style={{ color: 'var(--primary)', flexShrink: 0 }} /> {role}
+                  <li key={role} style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.82rem', lineHeight: 1.35 }}>
+                    <Check size={14} style={{ color: 'var(--primary)', flexShrink: 0 }} /> {role}
                   </li>
                 ))}
               </ul>
@@ -108,11 +108,11 @@ const Jobs = () => {
           ))}
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: '4rem' }}>
+        {/* <div style={{ textAlign: 'center', marginTop: '4rem' }}>
           <button className="btn btn-primary" style={{ padding: '1rem 3rem' }}>
             Book Consultation for Jobs
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

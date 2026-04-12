@@ -31,9 +31,9 @@ const majorDestinations = [
 ];
 
 const schengenCountries = [
-  "Germany", "Netherlands", "Switzerland", "Sweden", "Malta", "Croatia", "Poland", 
-  "Luxembourg", "Romania", "Finland", "Turkey", "Italy", "Slovakia", 
-  "Czech Republic", "Lithuania", "Portugal", "Austria", "Belgium"
+  "Germany", "Netherlands", "Switzerland", "Sweden", "Malta", "Croatia", "Poland", "etc.."
+  // "Luxembourg", "Romania", "Finland", "Turkey", "Italy", "Slovakia", 
+  // "Czech Republic", "Lithuania", "Portugal", "Austria", "Belgium"
 ];
 
 const Services = () => {
