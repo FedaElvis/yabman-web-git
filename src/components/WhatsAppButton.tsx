@@ -12,8 +12,6 @@ const WhatsAppButton = () => {
   const message = "Hello YABMAN, I'm interested in your visa services. Can you help me?";
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${internationalPhone}&text=${encodeURIComponent(message)}`;
 
-  
-
   return (
     <motion.a
       href={whatsappUrl}
@@ -30,13 +28,13 @@ const WhatsAppButton = () => {
         right: '30px',
         width: '64px',
         height: '64px',
-        backgroundColor: 'var(--secondary)',
+        backgroundColor: '#25D366',
         borderRadius: '50%',
         color: 'white',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        boxShadow: '0 10px 25px rgba(202, 138, 4, 0.35)',
+        boxShadow: '0 10px 25px rgba(37, 211, 102, 0.35)',
         zIndex: 5000,
         textDecoration: 'none'
       }}

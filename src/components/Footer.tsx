@@ -38,7 +38,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer style={{ background: 'var(--secondary)', color: 'white', padding: '6rem 0 2rem' }}>
+    <footer style={{ background: 'var(--primary)', color: 'white', padding: '6rem 0 2rem' }}>
       <div className="container">
         <div className="grid grid-cols-4" style={{ gap: '4rem', marginBottom: '4rem' }}>
           <div className="footer-brand" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>

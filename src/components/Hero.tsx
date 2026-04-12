@@ -2,7 +2,10 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Globe, CheckCircle } from "lucide-react";
+
+const HERO_IMAGE = "/yabman%20logo.jpeg";
 
 const Hero = () => {
   return (
@@ -12,7 +15,7 @@ const Hero = () => {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        background: 'linear-gradient(135deg, rgba(202, 138, 4, 0.08) 0%, rgba(250, 204, 21, 0.12) 100%)',
+        background: 'linear-gradient(135deg, rgba(30, 58, 138, 0.06) 0%, rgba(234, 88, 12, 0.08) 100%)',
         padding: '100px 0 60px',
         overflow: 'hidden'
       }}
@@ -34,14 +37,14 @@ const Hero = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.5rem',
-                background: 'rgba(250, 204, 21, 0.18)',
+                background: 'rgba(251, 191, 36, 0.25)',
                 color: 'var(--primary)',
                 padding: '0.5rem 1rem',
                 borderRadius: '50px',
                 fontSize: '0.9rem',
                 fontWeight: 700,
                 marginBottom: '1.5rem',
-                border: '1px solid rgba(202, 138, 4, 0.3)'
+                border: '1px solid rgba(30, 58, 138, 0.15)'
               }}
             >
               <Globe size={16} /> Trusted Visa Experts
@@ -84,19 +87,37 @@ const Hero = () => {
           >
             <div 
               style={{ 
+                position: 'relative',
                 width: '100%', 
                 aspectRatio: '1/1', 
-                background: 'linear-gradient(225deg, var(--secondary) 0%, var(--primary) 100%)',
                 borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
                 overflow: 'hidden',
                 boxShadow: 'var(--shadow-lg)'
               }}
             >
-              {/* This is a placeholder for a rich visual - I will use a generated image if needed, but for now a gradient blob looks premium */}
-               <div style={{ padding: '4rem', color: 'white', display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
-                  <h3 style={{ color: 'white', fontSize: '2.5rem' }}>Travel with Ease</h3>
-                  <p style={{ color: 'rgba(255,255,255,0.8)' }}>We handle the paperwork, you handle the luggage.</p>
-               </div>
+              <Image
+                src={HERO_IMAGE}
+                alt="YABMAN clients with successful travel documentation"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ objectFit: 'cover' }}
+                priority
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(to top, rgba(15, 23, 42, 0.82) 0%, rgba(15, 23, 42, 0.15) 50%, transparent 100%)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'flex-end',
+                  padding: '2.5rem',
+                  pointerEvents: 'none',
+                }}
+              >
+                <h3 style={{ color: 'white', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', marginBottom: '0.5rem' }}>Travel with Ease</h3>
+                <p style={{ color: 'rgba(255,255,255,0.88)', marginBottom: 0, fontSize: '1rem' }}>We handle the paperwork, you handle the luggage.</p>
+              </div>
             </div>
             
             {/* Floating stats card */}

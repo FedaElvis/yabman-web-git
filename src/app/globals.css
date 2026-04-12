@@ -1,14 +1,15 @@
 :root {
-  --primary: #facc15; /* Gold yellow */
-  --primary-light: #fde047;
-  --secondary: #ca8a04; /* Rich amber */
-  --secondary-light: #eab308;
-  --accent: #fef08a; /* Soft light yellow */
+  /* Palette aligned with yabman logo.jpeg: royal blue, orange–yellow sun, white */
+  --primary: #1e3a8a;
+  --primary-light: #2563eb;
+  --secondary: #ea580c;
+  --secondary-light: #fb923c;
+  --accent: #fbbf24;
   --background: #ffffff;
-  --background-alt: #fffbea;
-  --foreground: #1f1f1f;
-  --muted: #5f5f5f;
-  --border: #f1e3a6;
+  --background-alt: #f1f5f9;
+  --foreground: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
   --radius: 16px;
   --radius-sm: 8px;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -116,7 +117,7 @@ button, .btn {
 }
 
 .btn-accent:hover {
-  background: #ffea00;
+  background: #fcd34d;
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
@@ -130,7 +131,7 @@ button, .btn {
 .btn-outline:hover {
   border-color: var(--primary);
   color: var(--primary);
-  background: rgba(250, 204, 21, 0.12);
+  background: rgba(30, 58, 138, 0.06);
 }
 
 .container {
@@ -187,14 +188,14 @@ button, .btn {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 55%, var(--accent) 100%);
 }
 
 /* Custom Scrollbar */

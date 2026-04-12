@@ -8,25 +8,25 @@ const majorDestinations = [
     country: "United Kingdom",
     flag: "🇬🇧",
     description: "Health & Care, Skilled Worker, Student Visas.",
-    color: "#f59e0b"
+    color: "#1e3a8a"
   },
   {
     country: "Canada",
     flag: "🇨🇦",
     description: "Express Entry, PNP, Work & Study Permits.",
-    color: "#fbbf24"
+    color: "#ea580c"
   },
   {
     country: "Australia",
     flag: "🇦🇺",
     description: "Skilled Migration, Working Holiday, Student Permits.",
-    color: "#fcd34d"
+    color: "#2563eb"
   },
   {
     country: "New Zealand",
     flag: "🇳🇿",
     description: "Employer-Led Work, Essential Skills, Residency.",
-    color: "#ca8a04"
+    color: "#f59e0b"
   }
 ];
 
