@@ -41,7 +41,7 @@ const Offers = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Our Exclusive <span className="gradient-text">Offers</span>
+            Our Exclusive <span style={{ color: 'var(--primary)' }}>Offers</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -70,8 +70,8 @@ const Offers = () => {
                   position: 'absolute',
                   top: '1rem',
                   right: '-2rem',
-                  background: 'var(--accent)',
-                  color: 'black',
+                  background: 'var(--primary)',
+                  color: 'white',
                   padding: '0.2rem 2.5rem',
                   transform: 'rotate(45deg)',
                   fontSize: '0.7rem',

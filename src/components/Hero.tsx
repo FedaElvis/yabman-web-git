@@ -15,7 +15,7 @@ const Hero = () => {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        background: 'linear-gradient(135deg, rgba(30, 58, 138, 0.06) 0%, rgba(234, 88, 12, 0.08) 100%)',
+        background: 'linear-gradient(135deg, rgba(194, 65, 12, 0.1) 0%, rgba(251, 146, 60, 0.12) 100%)',
         padding: '100px 0 60px',
         overflow: 'hidden'
       }}
@@ -44,7 +44,7 @@ const Hero = () => {
                 fontSize: '0.9rem',
                 fontWeight: 700,
                 marginBottom: '1.5rem',
-                border: '1px solid rgba(30, 58, 138, 0.15)'
+                border: '1px solid rgba(194, 65, 12, 0.25)'
               }}
             >
               <Globe size={16} /> Expert Assist In Visa Processing
@@ -107,7 +107,7 @@ const Hero = () => {
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  background: 'linear-gradient(to top, rgba(15, 23, 42, 0.82) 0%, rgba(15, 23, 42, 0.15) 50%, transparent 100%)',
+                  background: 'linear-gradient(to top, rgba(124, 45, 18, 0.82) 0%, rgba(124, 45, 18, 0.15) 50%, transparent 100%)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'flex-end',

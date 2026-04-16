@@ -1,15 +1,15 @@
 :root {
-  /* Palette aligned with yabman logo.jpeg: royal blue, orange–yellow sun, white */
-  --primary: #1e3a8a;
-  --primary-light: #2563eb;
-  --secondary: #ea580c;
-  --secondary-light: #fb923c;
-  --accent: #fbbf24;
+  /* Deep orange + white palette */
+  --primary: #c2410c;
+  --primary-light: #ea580c;
+  --secondary: #9a3412;
+  --secondary-light: #c2410c;
+  --accent: #fb923c;
   --background: #ffffff;
-  --background-alt: #f1f5f9;
-  --foreground: #0f172a;
-  --muted: #64748b;
-  --border: #e2e8f0;
+  --background-alt: #fff7ed;
+  --foreground: #1c1917;
+  --muted: #57534e;
+  --border: #fed7aa;
   --radius: 16px;
   --radius-sm: 8px;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -131,7 +131,7 @@ button, .btn {
 .btn-outline:hover {
   border-color: var(--primary);
   color: var(--primary);
-  background: rgba(30, 58, 138, 0.06);
+  background: rgba(194, 65, 12, 0.08);
 }
 
 .container {
